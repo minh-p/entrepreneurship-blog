@@ -1,0 +1,8 @@
+#+title: README
+#+author: HMP
+#+date: <2023-08-31 Thu>
+
+* About
+This is my AP Lang Project blog for the year 2023. The topic is tech entrepreneurship and its trends.
+** Tech Stack
+This is one that I am familiar with: NextJS, Tailwindcss, Sanity, GraphQL, Typescript.
