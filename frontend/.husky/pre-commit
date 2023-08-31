@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm check-format ||
+    (
+        echo 'Not FORMATTED'
+    )
+
+npm run lint ||
+    (
+        echo 'ESLINT failed'
+    )
+
+npm run check-types ||
+    (
+        echo 'TYPE CHECK failed'
+    )
+
+npm run build ||
+    (
+        echo 'Could not BUILD'
+    )
