@@ -1,15 +1,15 @@
 import { getClient } from "@/lib/apolloClient";
 import { gql } from "@/__generated__/gql";
-import type { PortableTextBlock } from "@portabletext/types";
 import {
   PortableText,
   PortableTextComponents,
   PortableTextMarkComponentProps,
 } from "@portabletext/react"
+import type { PortableTextBlock } from "@portabletext/types"
 import Image from "next/image";
 
 const query = gql(`
-  query GetAboutProjectPage($current: String!) {
+  query GetAboutMePage($current: String!) {
     allPage(where: { slug: {current: { eq: $current } } }) {
       title,
       bodyRaw,
@@ -44,7 +44,7 @@ const components: PortableTextComponents = {
 const Home = async () => {
   const { data } = await getClient().query({
     query,
-    variables: { current: "about-project" },
+    variables: { current: "about-me" },
     context: {
       fetchOptions: {
         next: { revalidate: 120 },
@@ -62,17 +62,17 @@ const Home = async () => {
 
   return (
     <section className="text-center">
-      <div className="content mb-10 p-5">
+      <h1>{postData?.title}</h1>
+      <div className="content md:flex justify-center">
         <Image
           src={imageLink}
           alt={altImageText}
           width="600"
           height="315"
-          className="m-auto max-h-[50vh]"
-          style={{ padding: "20px", height: "auto" }}
+          className="m-auto 2xl:mr-0"
+          style={{ padding: "20px", height: "315px", width: "300px" }}
         />
-        <h1>{postData?.title}</h1>
-        <div className="text-justify max-w-[1000px] m-auto">
+        <div className="text-justify max-w-[1000px] m-auto p-10 py-0">
           <PortableText value={bodyRaw} components={components} />
         </div>
       </div>

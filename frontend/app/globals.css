@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 24, 24, 26;
+  }
+}
 
 *,
 body,
 html {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 nav ul li a {
@@ -19,4 +33,74 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+p {
+  font-size: 12px;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+a {
+  text-decoration: underline;
+}
+
+nav a {
+  font-size: 1.25em;
+}
+
+.content h1 {
+  font-size: 32pt;
+  line-height: 48pt;
+  padding-top: 20px;
+}
+
+.content h2 {
+  font-size: 26pt;
+  line-height: 39pt;
+  padding-top: 20px;
+}
+
+.content h3 {
+  font-size: 22pt;
+  font-size: 33pt;
+  padding-top: 20px;
+}
+
+.content h4 {
+  font-size: 20pt;
+  font-size: 30pt;
+  padding-top: 20px;
+}
+
+.content p {
+  font-size: 13pt;
+  line-height: 20pt;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.content ul li {
+  list-style-type: disc;
+  margin-left: 40px;
+}
+
+.content ol li {
+  list-style-type: number;
+  margin-left: 40px;
+}
+
+.feed_li a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3366bb;
 }
