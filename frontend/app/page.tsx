@@ -5,7 +5,7 @@ import {
   PortableText,
   PortableTextComponents,
   PortableTextMarkComponentProps,
-} from "@portabletext/react"
+} from "@portabletext/react";
 import Image from "next/image";
 
 const query = gql(`
@@ -72,7 +72,7 @@ const Home = async () => {
           style={{ padding: "20px", height: "auto" }}
         />
         <h1>{postData?.title}</h1>
-        <div className="text-justify max-w-[1000px] m-auto">
+        <div className="text-left max-w-[1000px] m-auto">
           <PortableText value={bodyRaw} components={components} />
         </div>
       </div>

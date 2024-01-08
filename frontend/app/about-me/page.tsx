@@ -4,8 +4,8 @@ import {
   PortableText,
   PortableTextComponents,
   PortableTextMarkComponentProps,
-} from "@portabletext/react"
-import type { PortableTextBlock } from "@portabletext/types"
+} from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 import Image from "next/image";
 
 const query = gql(`
@@ -62,8 +62,7 @@ const Home = async () => {
 
   return (
     <section className="text-center">
-      <h1>{postData?.title}</h1>
-      <div className="content md:flex justify-center">
+      <div className="content grid grid-cols-1 md:grid-cols-2 md:space-x-10 mr-10">
         <Image
           src={imageLink}
           alt={altImageText}
@@ -73,6 +72,7 @@ const Home = async () => {
           style={{ padding: "20px", height: "315px", width: "300px" }}
         />
         <div className="text-justify max-w-[1000px] m-auto p-10 py-0">
+          <h1>{postData?.title}</h1>
           <PortableText value={bodyRaw} components={components} />
         </div>
       </div>

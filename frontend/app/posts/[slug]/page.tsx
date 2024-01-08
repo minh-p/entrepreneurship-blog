@@ -10,6 +10,7 @@ import { convertToSimpleDate } from "@/lib/convertToSimpleDate";
 import type { PortableTextBlock } from "@portabletext/types";
 import Image from "next/image";
 import React from "react";
+import SanityImage from "@/components/SanityImage";
 
 const allPostsQuery = gql(`query Posts {
   allPost {
@@ -74,6 +75,11 @@ export const generateStaticParams = async () => {
 };
 
 const components: PortableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      return <SanityImage {...value} />;
+    },
+  },
   marks: {
     link: ({ value, children }: PortableTextMarkComponentProps) => {
       const href: string = String(value?.href) || "";
